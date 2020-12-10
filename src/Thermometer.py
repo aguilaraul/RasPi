@@ -47,9 +47,9 @@ def send_tweet(tempC, datetime):
     message = "Live from Raul's backyard:\n"
     if 0 <= hour < 12:
         message += "Good morning!"
-    if 12 <= hour < 6:
+    if 12 <= hour < 18:
         message += "Good afternoon!"
-    if 6 <= hour < 0:
+    if 18 <= hour < 0:
         message += "Good evening!"
     hour = hour % 12
     message += "\nIt is currently %02d:%02d%s and the temperature is %.2f F" % (hour, minute, meridiem, tempF)
