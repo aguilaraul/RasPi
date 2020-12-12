@@ -1,3 +1,4 @@
+# _*_ coding: UTF-8 _*_
 #!/usr/bin/env python3
 #############################################################################
 # Filename    : Thermometer.py
@@ -42,21 +43,23 @@ def send_tweet(tempC, datetime):
     minute = int(minute)
     message = "Live from Raul's backyard:\n"
     if 0 <= hour < 12:
-        message += "Good morning!"
         meridiem = "am"
-    elif 12 <= hour < 18:
-        message += "Good afternoon!"
-        meridiem = "pm"
     else:
-        message += "Good evening!"
         meridiem = "pm"
+    if 5 <= hour < 10:
+        emote = "⛅ "
+    elif 10 <= hour < 18:
+        emote = "🌤️ "
+    else:
+        emote = "🌙 "
     if hour != 12:
         hour = hour % 12
-    message += "\nIt is currently %02d:%02d%s and the temperature is %.2f F" % (hour, minute, meridiem, tempF)
+    message += "\nIt is currently %02d:%02d%s%s and the temperature is %.2f F" % \
+               (hour, minute, meridiem, emote, 41.154415)
 
     # Twython
     twitter = Twython(API_key, API_secret_key, access_token, access_token_secret)
-    twitter.update_status(status=message)
+    twitter.update_status(status=message.decode('utf-8'))
     print("Tweeted: %s" % message)
 
 
