@@ -54,7 +54,7 @@ def send_tweet(tempC, datetime):
         emote = " 🌙 "
     if hour != 12:
         hour = hour % 12
-    message += "%02d:%02d%s%s %.2f F" % (hour, minute, meridiem, emote, 41.154415)
+    message += "%02d:%02d%s%s %.2f F" % (hour, minute, meridiem, emote, tempF)
 
     # Twython
     twitter = Twython(API_key, API_secret_key, access_token, access_token_secret)
