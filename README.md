@@ -1,2 +1,2 @@
 # RasPi
-Code to run on my Raspberry Pi
+Code to run on the Raspberry Pi
