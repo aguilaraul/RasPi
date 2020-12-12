@@ -47,11 +47,11 @@ def send_tweet(tempC, datetime):
     else:
         meridiem = "pm"
     if 5 <= hour < 10:
-        emote = "⛅ "
+        emote = " ⛅ "
     elif 10 <= hour < 18:
-        emote = "🌤️ "
+        emote = " 🌤️ "
     else:
-        emote = "🌙 "
+        emote = " 🌙 "
     if hour != 12:
         hour = hour % 12
     message += "%02d:%02d%s%s %.2f F" % (hour, minute, meridiem, emote, 41.154415)
