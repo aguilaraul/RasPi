@@ -63,7 +63,7 @@ def send_tweet(tempC, datetime):
 
 
 def loop():
-    i = 48
+    # i = 48
     try:
         while True:
             value = adc.analogRead(0)  # read ADC value A0 pin
@@ -77,20 +77,20 @@ def loop():
             log.write("{0}, {1}, {2}, {3}\n".format(datetime, str(tempC), str(voltage), str(value)))
 
             # Print to terminal
-            print("{0}, {1}".format(datetime, str(tempC)))
-            print('ADC Value: %d, Voltage: %.2f\n' % (value, voltage))
+            # print("{0}, {1}".format(datetime, str(tempC)))
+            # print('ADC Value: %d, Voltage: %.2f\n' % (value, voltage))
 
             # Use counter to determine 48 * (30 minutes) = 1440 minutes == 24 hours
-            # Send tweet every 2 hours
-            if i % 4 == 0:
-                try:
-                    send_tweet(tempC, datetime)
-                except:
-                    print("Could not send Tweet.")
-                i = 48
+            # Send tweet every 6 hours
+            # if i % 8 == 0:
+            #     try:
+            #         send_tweet(tempC, datetime)
+            #     except:
+            #         print("Could not send Tweet.")
+            #     i = 48
 
-            sleep(1800)
-            i -= 1
+            sleep(5/60)
+            # i -= 1
     except:
         log.close()
 
